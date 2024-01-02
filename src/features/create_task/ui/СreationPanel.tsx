@@ -1,6 +1,6 @@
 import  { FC, useEffect, useState } from "react";
 import { Icon } from "shared/ui/icon/Icon";
-// import { Input } from "shared/ui/input/Input";
+import { Input } from "shared/ui/input/Input";
 import crystal from "shared/assets/Gelatin_Crystal.png";
 import { InputNumber } from "shared/ui/input_number/InputNumber";
 import { Difficulty, DIFFICULTY_COLORS } from "entities/task_list_item";
@@ -10,15 +10,16 @@ interface СreationPanelProps {
   toggle: () => void;
 }
 export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
-  const [title] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [reward, setReward] = useState(0);
   const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.EASY);
   const [difficultyList, setDifficultyList] = useState<Difficulty[]>([]);
   const create = useTasksStore((state) => state.create);
 
-  // const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setTitle(e.target.value);
-  // };
+  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
   const handleReward = (value: number) => {
     setReward(value);
   };
@@ -42,11 +43,11 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
     <div className="mt-5">
       <div className="mb-5">
         <div className="mb-2 text-title_sm">Название</div>
-        {/* <Input
+        <Input
           placeholder="Победить дракона"
           value={title}
           onChange={handleTitle}
-        /> */}
+        />
       </div>
       <div className="mb-5">
         <div className="mb-2 text-title_sm">Награда</div>
