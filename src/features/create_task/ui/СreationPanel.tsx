@@ -10,15 +10,15 @@ interface СreationPanelProps {
   toggle: () => void;
 }
 export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
-  const [title, setTitle] = useState<string>("");
+  const [title] = useState<string>("");
   const [reward, setReward] = useState(0);
   const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.EASY);
   const [difficultyList, setDifficultyList] = useState<Difficulty[]>([]);
   const create = useTasksStore((state) => state.create);
 
-  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
-  };
+  // const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setTitle(e.target.value);
+  // };
   const handleReward = (value: number) => {
     setReward(value);
   };
