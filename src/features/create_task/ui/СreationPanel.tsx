@@ -1,10 +1,11 @@
 import  { FC, useEffect, useState } from "react";
 import { Icon } from "shared/ui/icon/Icon";
-import { Input } from "shared/ui/input/Input";
-import crystal from "shared/assets/Gelatin_Crystal.png";
 import { InputNumber } from "shared/ui/input_number/InputNumber";
+import { Input } from "shared/ui";
 import { Difficulty, DIFFICULTY_COLORS } from "entities/task_list_item";
 import { useTasksStore } from "shared/store/tasks/tasks";
+import crystal from "shared/assets/Gelatin_Crystal.png";
+
 
 interface СreationPanelProps {
   toggle: () => void;
