@@ -1,6 +1,6 @@
-import { Avatar } from "shared/ui/Avatar";
 import { Balance } from "shared/ui/Balance";
 import { Diamond } from "shared/ui/diamond/Diamond";
+import crystal from "shared/assets/Gelatin_Crystal.png";
 
 export const Header = () => {
   return (
@@ -11,8 +11,8 @@ export const Header = () => {
             <Diamond />
           </div>
           <div className="flex items-center gap-3">
-            <Avatar />
-            <Balance value={329} />
+            {/* <Avatar /> */}
+            <Balance value={329} icon={crystal} />
           </div>
         </div>
       </header>

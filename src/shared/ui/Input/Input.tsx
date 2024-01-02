@@ -1,5 +1,4 @@
 import { ChangeEvent, FC } from "react";
-import "./input.css";
 
 interface InputProps {
   onChange: (value: ChangeEvent<HTMLInputElement>) => void;
@@ -9,17 +8,11 @@ interface InputProps {
 
 export const Input: FC<InputProps> = ({ onChange, value, placeholder }) => {
   return (
-    <div 
-    className="form-control"
-    >
-      <input
-        onChange={onChange}
-        value={value}
-        placeholder={placeholder}
-        className="input input-alt"
-        type="text"
-      />
-      <span className="input-border input-border-alt"></span>
-    </div>
+    <input
+      className="box-border bg-second_bg w-full px-4 py-2 rounded-xl border-solid border-4 border-[rgba(0,0,0,0.0)] focus:border-primary outline-none"
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+    />
   );
 };

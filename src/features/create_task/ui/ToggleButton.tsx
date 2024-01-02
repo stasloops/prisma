@@ -9,15 +9,10 @@ export const ToggleButton: FC<ButtonProps> = ({ toggle, isActive }) => {
   return (
     <div
       onClick={toggle}
-      className="flex justify-center items-center gap-2 py-3 bg-[#5ee77c] rounded-xl font-bold"
+      style={{background: 'linear-gradient(98deg, rgba(238,49,252,1) 0%, rgba(207,190,225,1) 37%, rgba(60,206,179,1) 92%)'}}
+      className="flex justify-center items-center gap-2 py-3  rounded-xl font-bold"
     >
-      <div
-        style={{ transform: `rotate(${isActive ? "45deg" : "0deg"})` }}
-        className="text-xl transition-[1s] w-[28px] h-[28px]"
-      >
-        ➕
-      </div>
-      <div className="text-xl">{isActive ? "Отменить" : "Создать"}</div>
+      <div style={{textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'}} className="text-xl">{isActive ? "Отменить" : "Создать"}</div>
     </div>
   );
 };

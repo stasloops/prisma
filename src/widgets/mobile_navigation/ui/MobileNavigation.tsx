@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { theme } from "shared/styles/style.variables";
 
 const NAVIGATION_ITEMS = [
   { title: "Инвентарь", icon: "💼", path: "/inventory" },
@@ -25,7 +24,7 @@ export const MobileNavigation = () => {
             onClick={() => navigateByNav(item.path, item.title)}
             style={{
               width: `${100 / NAVIGATION_ITEMS.length}%`,
-              backgroundColor: activeNav === item.title ? theme.primary : "",
+              backgroundColor: activeNav === item.title ? '#2c2c2c' : "",
             }}
             className="py-2.5"
             key={item.title}

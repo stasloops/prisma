@@ -63,10 +63,9 @@
     position: absolute;
     z-index: -1;
     top: 8px;
-    width: 10px;
-    height: 10px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
-    background: #fff;
   }
   
   .dots .dot:nth-child(1) {

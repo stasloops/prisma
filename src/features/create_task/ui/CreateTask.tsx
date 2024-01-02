@@ -14,16 +14,16 @@ export const CreateTask = () => {
   } = useCollaps();
 
   return (
-    <div style={{ ...collaps_styles }} className="mb-10">
+    <div style={{ ...collaps_styles }}>
       <div ref={preview_ref} style={{ ...preview_styles }}>
         <ToggleButton toggle={toggle} isActive={isOpen} />
       </div>
       <div
         style={{ ...additional_styles }}
         ref={additional_ref}
-        className="px-4 py-4 bg-second_bg rounded-xl"
+        className="px-4 pt-4 rounded-xl"
       >
-        <СreationPanel />
+        <СreationPanel toggle={toggle}/>
       </div>
     </div>
   );

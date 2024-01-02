@@ -6,12 +6,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#e283f0',
+        primary: '#5dcabd',
         primary_bg: '#171717',
         second_bg: '#212121'
       },
       fontSize: {
         title: '1.5rem',
+        title_sm: '1.15rem',
       },
     },
   },
