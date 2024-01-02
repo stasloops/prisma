@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { useCollaps } from "shared/hooks/useCollaps";
-import { ITaskListItem } from "../types";
+import { ITask } from "shared/store/tasks/types";
 import { AdditionalInformation } from "./AdditionalInformation";
 import { PreviewInformation } from "./PreviewInformation";
 
 interface TaskListItemProps {
-  task: ITaskListItem;
+  task: ITask;
 }
 export const TaskListItem: FC<TaskListItemProps> = ({ task }) => {
   const {
@@ -19,15 +19,14 @@ export const TaskListItem: FC<TaskListItemProps> = ({ task }) => {
 
   return (
     <div
-      onClick={toggle}
       style={{ ...collaps_styles }}
       className="mb-2.5 rounded-xl"
     >
       <div style={{ ...preview_styles }} ref={preview_ref}>
-        <PreviewInformation title={task.title} difficulty={task.difficulty} />
+        <PreviewInformation title={task.title} difficulty={task.difficulty} toggle={toggle} />
       </div>
       <div style={{ ...additional_styles }} ref={additional_ref}>
-        <AdditionalInformation />
+        <AdditionalInformation task={task} />
       </div>
     </div>
   );

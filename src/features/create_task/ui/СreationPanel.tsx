@@ -1,11 +1,11 @@
-import  { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Icon } from "shared/ui/icon/Icon";
 import { InputNumber } from "shared/ui/input_number/InputNumber";
 import { Input } from "shared/ui";
-import { Difficulty, DIFFICULTY_COLORS } from "entities/task_list_item";
+import { DIFFICULTY_COLORS } from "entities/task_list_item";
 import { useTasksStore } from "shared/store/tasks/tasks";
+import { Difficulty } from "shared/store/tasks/types";
 import crystal from "shared/assets/Gelatin_Crystal.png";
-
 
 interface СreationPanelProps {
   toggle: () => void;
@@ -15,10 +15,12 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
   const [reward, setReward] = useState(0);
   const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.EASY);
   const [difficultyList, setDifficultyList] = useState<Difficulty[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
   const create = useTasksStore((state) => state.create);
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+    setErrorMessage("");
   };
 
   const handleReward = (value: number) => {
@@ -30,14 +32,19 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
   }, []);
 
   const addNewTask = () => {
-    const taskData = {
+    if (title.length <= 4) {
+      return setErrorMessage("Количество символов должно быть больше 4-ых");
+    }
+    toggle();
+    create({
       id: String(Date.now()),
       title: title,
       difficulty: difficulty,
       reward: { crystals: reward },
-    };
-    create(taskData);
-    toggle();
+    });
+    setTitle("");
+    setReward(10)
+    setDifficulty(Difficulty.EASY)
   };
 
   return (
@@ -49,6 +56,9 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
           value={title}
           onChange={handleTitle}
         />
+        {errorMessage ? (
+          <div className="text-red-400">{errorMessage}</div>
+        ) : null}
       </div>
       <div className="mb-5">
         <div className="mb-2 text-title_sm">Награда</div>
@@ -58,7 +68,7 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
             onChange={handleReward}
             value={reward}
             max={2000}
-            defaultValue={100}
+            defaultValue={10}
           />
         </div>
       </div>

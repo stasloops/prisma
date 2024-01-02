@@ -8,9 +8,11 @@ export const TasksList = () => {
     <div className="mt-4">
       <CreateTask />
       <div className="mt-8">
-        {tasks.map((task) => (
-          <TaskListItem key={task.id} task={task} />
-        ))}
+        {tasks.length ? (
+          tasks.map((task) => <TaskListItem key={task.id} task={task} />)
+        ) : (
+          <div className="font-bold text-title text-center py-10">Пока задач нету :(</div>
+        )}
       </div>
     </div>
   );

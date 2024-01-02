@@ -4,13 +4,16 @@ import { ITask } from "./types";
 
 interface Store {
   tasks: ITask[];
-  create: (task: ITask) => void;
+  create: (newTask: ITask) => void;
+  deleteById: (id: string) => void;
 }
 
 const tasksStore = persist<Store>(
   (set, get) => ({
     tasks: [],
-    create: (task) => set(() => ({ tasks: [task, ...get().tasks] })),
+    create: (newTask) => set(() => ({ tasks: [newTask, ...get().tasks] })),
+    deleteById: (id) =>
+      set(() => ({ tasks: get().tasks.filter((task) => task.id !== id) })),
   }),
   {
     name: "tasks-storage",

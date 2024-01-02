@@ -3,7 +3,7 @@ import { CSSProperties, useEffect, useRef, useState } from "react";
 export const useCollaps = () => {
   const preview_ref = useRef<HTMLDivElement | null>(null);
   const additional_ref = useRef<HTMLDivElement | null>(null);
-  const [height, setHeight] = useState<number>(0);
+  const [height, setHeight] = useState<number>(Number(preview_ref?.current?.offsetHeight));
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggle = () => {
