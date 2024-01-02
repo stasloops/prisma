@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { Icon } from "shared/ui/icon/Icon";
-import { Input } from "shared/ui/input/Input";
+// import { Input } from "shared/ui/input/Input";
 import crystal from "shared/assets/Gelatin_Crystal.png";
 import { InputNumber } from "shared/ui/input_number/InputNumber";
 import { Difficulty, DIFFICULTY_COLORS } from "entities/task_list_item";
@@ -42,11 +42,11 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
     <div className="mt-5">
       <div className="mb-5">
         <div className="mb-2 text-title_sm">Название</div>
-        <Input
+        {/* <Input
           placeholder="Победить дракона"
           value={title}
           onChange={handleTitle}
-        />
+        /> */}
       </div>
       <div className="mb-5">
         <div className="mb-2 text-title_sm">Награда</div>
