@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import  { FC, useEffect, useState } from "react";
 import { Icon } from "shared/ui/icon/Icon";
 // import { Input } from "shared/ui/input/Input";
 import crystal from "shared/assets/Gelatin_Crystal.png";
