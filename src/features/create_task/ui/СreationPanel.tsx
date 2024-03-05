@@ -57,7 +57,7 @@ export const СreationPanel: FC<СreationPanelProps> = ({ toggle }) => {
           onChange={handleTitle}
         />
         {errorMessage ? (
-          <div className="text-red-400">{errorMessage}</div>
+          <div className="text-red">{errorMessage}</div>
         ) : null}
       </div>
       <div className="mb-5">

@@ -1,5 +1,8 @@
+import { InventoryList } from "widgets/inventory_list";
+
+
 const Inventory = () => {
-  return <div>Inventory</div>;
+  return <InventoryList />;
 };
 
 export default Inventory;

@@ -1,4 +1,4 @@
-import { useCollaps } from "shared/hooks/useCollaps";
+import { useCollaps } from "shared/hooks";
 import { ToggleButton } from "./ToggleButton";
 import { СreationPanel } from "./СreationPanel";
 

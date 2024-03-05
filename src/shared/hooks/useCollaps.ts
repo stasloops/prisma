@@ -3,7 +3,9 @@ import { CSSProperties, useEffect, useRef, useState } from "react";
 export const useCollaps = () => {
   const preview_ref = useRef<HTMLDivElement | null>(null);
   const additional_ref = useRef<HTMLDivElement | null>(null);
-  const [height, setHeight] = useState<number>(Number(preview_ref?.current?.offsetHeight));
+  const [height, setHeight] = useState<number>(
+    Number(preview_ref?.current?.offsetHeight)
+  );
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggle = () => {
@@ -13,12 +15,12 @@ export const useCollaps = () => {
   useEffect(() => {
     const previewHeight = Number(preview_ref?.current?.offsetHeight);
     const additional = Number(additional_ref?.current?.offsetHeight);
-
+    
     if (isOpen) {
       return setHeight(previewHeight + additional);
     }
     setHeight(previewHeight);
-  }, [isOpen]);
+  }, [isOpen, additional_ref?.current?.offsetHeight]);
 
   const preview_styles: CSSProperties = {
     position: "relative",

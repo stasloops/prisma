@@ -1,5 +1,6 @@
 import { FC } from "react";
 import crystal from "shared/assets/Gelatin_Crystal.png";
+import { usePopupStore } from "shared/store/popup/popup";
 import { useTasksStore } from "shared/store/tasks/tasks";
 import { ITask } from "shared/store/tasks/types";
 import { useUserStore } from "shared/store/user/user";
@@ -12,6 +13,7 @@ interface AdditionalInformationProps {
 export const AdditionalInformation: FC<AdditionalInformationProps> = ({
   task,
 }) => {
+  const openPopup = usePopupStore((state) => state.openPopup);
   const incrementCrystals = useUserStore((state) => state.incrementCrystals);
   const deleteById = useTasksStore((state) => state.deleteById);
 
@@ -22,7 +24,7 @@ export const AdditionalInformation: FC<AdditionalInformationProps> = ({
 
   const removeTask = () => {
     deleteById(task.id);
-  }
+  };
 
   return (
     <div className="px-4 py-4 bg-primary_bg rounded-xl">
@@ -35,14 +37,14 @@ export const AdditionalInformation: FC<AdditionalInformationProps> = ({
       </div>
       <div className="flex justify-center gap-4 mt-4 p-2 rounded-xl">
         <button
-          onClick={removeTask}
-          className="bg-red-500 px-4 py-2 rounded-xl font-bold"
+          onClick={() => openPopup(removeTask)}
+          className="bg-red px-4 py-2 rounded-xl font-bold"
         >
           Удалить
         </button>
         <button
-          onClick={completeTask}
-          className="bg-green-400 px-4 py-2 rounded-xl font-bold"
+          onClick={() => openPopup(completeTask)}
+          className="bg-green px-4 py-2 rounded-xl font-bold"
         >
           Завершить
         </button>

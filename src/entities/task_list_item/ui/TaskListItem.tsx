@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useCollaps } from "shared/hooks/useCollaps";
+import { useCollaps } from "shared/hooks";
 import { ITask } from "shared/store/tasks/types";
 import { AdditionalInformation } from "./AdditionalInformation";
 import { PreviewInformation } from "./PreviewInformation";
